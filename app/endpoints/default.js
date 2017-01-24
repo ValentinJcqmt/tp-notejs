@@ -13,6 +13,16 @@ exports.register = (server, options, next) => {
                 tags        : [ 'api' ],
                 handler     : handler.root
             }
+        },
+        {
+            method : 'POST',
+            path   : '/register',
+            config : {
+                description : 'User register route',
+                notes       : 'Inscription d\'un utilisateur',
+                tags        : [ 'api' ],
+                handler     : handler.register
+            }
         }
     ]);
     next();

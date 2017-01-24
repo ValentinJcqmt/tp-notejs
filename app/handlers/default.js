@@ -5,3 +5,10 @@ module.exports.root = (request, response) => {
         result : 'vous êtes connectés'
     });
 };
+
+module.exports.register = (request, response) => {
+    response(null,  {
+
+        result : request
+    });
+};
