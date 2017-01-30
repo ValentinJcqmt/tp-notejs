@@ -41,24 +41,17 @@ module.exports.getUser = function (request, reply) {
 };
 
 module.exports.addTemplate = function (request, reply) {
-
-    reply.view('truc');
-
 };
 
 module.exports.addUser = function (request, reply) {
-
-    reply(request);
+    console.log(request.payload);
+    let model = new request.server.db.users();
+    model.set({
+        "firstName" : request.payload.firstName,
+        "lastName" : request.payload.lastName,
+        "emailAddress" : request.payload.email,
+        "password" : request.payload.pwd
+    });
+    reply();
 
 };
-
-/*
-Create and save model
-let model = new request.server.db.users()
-
-model.set({
-    "firstName" : "Tartempion",
-    "email" : "elpuedo@gato.es",
-    ...
-});
- */

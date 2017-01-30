@@ -26,6 +26,7 @@
     "hapi-boom-decorators": "2.2.2",
     "lodash": "4.17.2",
     "mongojs": "^2.4.0",
+    "swagger": "^0.7.5",
     "vision": "^4.1.1"
   }
 }
