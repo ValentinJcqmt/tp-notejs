@@ -15,13 +15,61 @@ exports.register = (server, options, next) => {
             }
         },
         {
-            method : 'POST',
-            path   : '/register',
+            method : 'GET',
+            path : '/users',
             config : {
-                description : 'User register route',
-                notes       : 'Inscription d\'un utilisateur',
-                tags        : [ 'api' ],
-                handler     : handler.register
+                description : 'Get all users in db',
+                tags : ['api'],
+                handler : handler.getUsers
+            }
+        },
+        {
+            method : 'GET',
+            path : '/user/{id}',
+            config : {
+                description : 'Get a specific user',
+                tags : ['api'],
+                handler : handler.getUser
+            }
+        },
+        {
+            method : 'GET',
+            path : '/edit/{id}',
+            config : {
+                description : 'something route',
+                notes : 'oui',
+                tags : ['api'],
+                handler : handler.something
+            }
+        },
+        {
+            method : 'GET',
+            path : '/add',
+            config : {
+                description : 'something route',
+                notes : 'oui',
+                tags : ['api'],
+                handler : handler.addTemplate
+            }
+        },
+        {
+            method : 'POST',
+            path : '/add',
+            config : {
+                description : 'something route',
+                notes : 'oui',
+                tags : ['api'],
+                handler : handler.addUser
+            }
+        },
+        {
+            method : 'POST',
+            path : '/delete/{id}',
+            config : {
+                description : 'something route',
+                notes : 'oui',
+                tags : ['api'],
+                handler : handler.something
             }
         }
     ]);
