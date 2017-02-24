@@ -20,3 +20,6 @@ module.exports.init = () => {
         return server;
     }).catch(err => {console.error(err)});
 };
+
+//I have no idea what I am doing
+//But I don't really care :)

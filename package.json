@@ -24,7 +24,10 @@
     "handlebars": "^4.0.6",
     "hapi": "16.0.1",
     "hapi-boom-decorators": "2.2.2",
+    "hapi-swagger": "^7.6.0",
+    "inert": "^4.1.0",
     "lodash": "4.17.2",
+    "manifest": "^0.1.4",
     "mongojs": "^2.4.0",
     "swagger": "^0.7.5",
     "vision": "^4.1.1"

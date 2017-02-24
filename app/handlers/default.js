@@ -6,12 +6,6 @@ module.exports.root = (request, response) => {
     });
 };
 
-module.exports.something = (request, response) => {
-    response(null,  {
-
-        result : {key : 'value'}
-    });
-};
 
 module.exports.getUsers = function (request, reply) {
     request.server.db.users.find((err, docs) => {
@@ -34,17 +28,19 @@ module.exports.getUser = function (request, reply) {
         if (err) {
             return reply(Boom.wrap(err, 'Internal MongoDB error'));
         }
-
-        reply(docs);
+        if(docs)
+            return reply(docs);
+        if(!docs)
+            return reply(404);
     });
 
 };
 
 module.exports.addTemplate = function (request, reply) {
+    //reply.view(//La vue d'ajout);
 };
 
 module.exports.addUser = function (request, reply) {
-    console.log(request.payload);
     let model = new request.server.db.users();
     model.set({
         "firstName" : request.payload.firstName,
@@ -54,4 +50,41 @@ module.exports.addUser = function (request, reply) {
     });
     reply();
 
+};
+
+module.exports.delete = function(request, reply){
+    request.server.db.users.find({
+        _id : request.params.id
+    },(err, docs) => {
+
+        if (err) {
+            return reply(Boom.wrap(err, 'Internal MongoDB error'));
+        }
+
+        if(docs)
+            request.server.db.users.remove({
+                _id : request.params.id
+            });
+        if(!docs)
+            return reply(404);
+
+        //Redirect
+    });
+};
+
+module.exports.edit = function(request, reply){
+  request.server.db.users.find({
+      _id : request.params.id
+  }, (err, docs) => {
+      if(err) {
+          return reply(Boom.wrap(err, 'Internal MongoDB error'));
+      }
+
+      if(docs)
+        //Reply view with 'docs'
+          return reply(docs);
+      if(!docs)
+          return reply(404);
+
+  });
 };

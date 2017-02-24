@@ -39,7 +39,7 @@ exports.register = (server, options, next) => {
                 description : 'something route',
                 notes : 'oui',
                 tags : ['api'],
-                handler : handler.something
+                handler : handler.edit
             }
         },
         {
@@ -66,10 +66,10 @@ exports.register = (server, options, next) => {
             method : 'POST',
             path : '/delete/{id}',
             config : {
-                description : 'something route',
+                description : 'Delete a user',
                 notes : 'oui',
                 tags : ['api'],
-                handler : handler.something
+                handler : handler.delete
             }
         }
     ]);

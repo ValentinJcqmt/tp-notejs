@@ -5,7 +5,6 @@ const mongojs = require('mongojs');
 const Vision = require('vision');
 const Inert = require('inert');
 const HapiSwagger = require('hapi-swagger');
-const Pack = require('./package');
 const Handlebars = require('handlebars');
 
 manifest.init().then(server => {
@@ -23,10 +22,8 @@ manifest.init().then(server => {
     server.register([
         Inert,
         Vision,
-        {
-            'register': HapiSwagger,
-            'options': options
-        }], (err) => {
+        HapiSwagger
+    ], (err) => {
         server.start( (err) => {
             if (err) {
                 console.log(err);
@@ -35,7 +32,6 @@ manifest.init().then(server => {
             }
         });
     });
-    ;
 }).catch(err => {
     throw err;
 });

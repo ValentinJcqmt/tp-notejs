@@ -1,9 +1,9 @@
-'use strict';
+"use strict";
 
-const async     = require('async');
-const fs        = require('fs');
-const path      = require('path');
-const routeDir  = path.join(__dirname, '../../app/endpoints/');
+const async     = require("async");
+const fs        = require("fs");
+const path      = require("path");
+const routeDir  = path.join(__dirname, "../../app/endpoints/");
 const routes    = fs.readdirSync(routeDir);
 
 module.exports.init = server => {
